@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'company' => $data['company'],
-            'country' => $data['country'],
+            'country' => $data['country']
         ]);
     }
 
@@ -84,8 +84,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {   
-        $countriesList = DB::table('countries')->get();
+        $counteries = DB::table('countries')->get();
 
-        return view('auth.register', ['countriesList' => $countriesList]);
+        return view('auth.register', ['counteries' => $counteries]);
     }
 }
