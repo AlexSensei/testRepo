@@ -7,22 +7,22 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
-     * Instantiate a new controller instance.
+     * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('home');
+        $this->middleware('auth');
     }
+
     /**
-     * Greet the user.
+     * Show the application dashboard.
      *
-     * 
-     * @return String
+     * @return \Illuminate\Http\Response
      */
-    public function homeGreet()
+    public function index()
     {
-        return view('child', ['name' => 'VivifyIntern']);
+        return view('home');
     }
 }

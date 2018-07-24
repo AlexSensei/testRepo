@@ -12,5 +12,8 @@
         <div class="container">
             @yield('content')
         </div>
+
+        @section('loginbar')
+        @show
     </body>
 </html>
