@@ -13,3 +13,7 @@
 @section('content')
     <p>Hello {{ $name }} </p>
 @endsection
+
+@section('loginbar')
+    
+@endsection

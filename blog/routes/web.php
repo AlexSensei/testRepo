@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home','HomeController@homeGreet')->middleware('home');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
