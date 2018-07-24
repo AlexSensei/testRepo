@@ -48,13 +48,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $countriesList = DB::table('countries')->get();
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'company' => 'required|string|max:255',
-            'country' => 'required|string|max:255',
+            'country' => 'required|string|max:255|exists:countries,full_name',
         ]);
     }
 
