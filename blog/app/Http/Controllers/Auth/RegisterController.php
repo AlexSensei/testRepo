@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -50,8 +51,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'company' => 'required|string|max:255',
+            'country' => 'required|string|max:255|exists:countries,full_name',
         ]);
     }
 
@@ -64,9 +68,24 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['name'],
+            'last_name' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'company' => $data['company'],
+            'country' => $data['country']
         ]);
+    }
+
+      /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {   
+        $counteries = DB::table('countries')->get();
+
+        return view('auth.register', ['counteries' => $counteries]);
     }
 }
