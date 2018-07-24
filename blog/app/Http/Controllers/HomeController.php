@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function homeGreet()
     {
-        return "Greetings!";
+        return view('child', ['name' => 'VivifyIntern']);
     }
 }
