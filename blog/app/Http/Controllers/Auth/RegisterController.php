@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use DB;
+
 class RegisterController extends Controller
 {
     /*
@@ -48,7 +49,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $countriesList = DB::table('countries')->get();
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
@@ -86,6 +86,6 @@ class RegisterController extends Controller
     {   
         $countriesList = DB::table('countries')->get();
 
-        return view('auth.register',['countriesList' => $countriesList]);
+        return view('auth.register', ['countriesList' => $countriesList]);
     }
 }

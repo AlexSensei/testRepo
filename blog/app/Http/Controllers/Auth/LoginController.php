@@ -21,7 +21,7 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after lsad verujem da ogin.
+     * Where to redirect users after login.
      *
      * @var string
      */
