@@ -84,8 +84,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {   
-        $counteries = DB::table('countries')->get();
+        $countries = DB::table('countries')->get();
 
-        return view('auth.register', ['counteries' => $counteries]);
+        return view('auth.register', ['countries' => $countries]);
     }
 }
