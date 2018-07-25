@@ -95,7 +95,7 @@
 
                             <div class="col-md-6">
                                 <select name="country" id="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" value="{{ old('country') }}" required autofocus>
-                                @foreach ($counteries as $country)
+                                @foreach ($countries as $country)
                                     <option value='{{ $country->full_name }}'> {{ $country->full_name }} </option> 
                                 @endforeach
                                 </select>
