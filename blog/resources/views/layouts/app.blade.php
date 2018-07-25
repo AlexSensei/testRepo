@@ -22,11 +22,11 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <header class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 @include('partial.header')
             </div>
-        </nav>
+        </header>
 
         <main class="py-4">
             @yield('content')
